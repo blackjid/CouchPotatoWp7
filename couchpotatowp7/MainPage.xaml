@@ -1,0 +1,60 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="couchpotatowp7.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
+    d:DataContext="{d:DesignData SampleData/MovieSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" 
+    xmlns:views="clr-namespace:couchpotatowp7.View">
+
+    <phone:PhoneApplicationPage.Resources>
+        <shell:ApplicationBar x:Key="wantedAppBar" IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="AppBar.New.png" Text="Add" Click="AppBarNewMovie_Click"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Settings" Click="AppBarSettings_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+        <shell:ApplicationBar x:Key="snatchedAppBar" IsVisible="True" IsMenuEnabled="True" Mode="Minimized" Opacity="0.5">
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Settings" Click="AppBarSettings_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+        <shell:ApplicationBar x:Key="downloadedAppBar" IsVisible="True" IsMenuEnabled="True" Mode="Minimized" Opacity="0.5">
+            <!--<shell:ApplicationBarIconButton IconUri="AppBar.ClearAll.png" Text="Clear All" Click="AppBarNewMovie_Click"/>-->
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Settings" Click="AppBarSettings_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+        
+    </phone:PhoneApplicationPage.Resources>
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <!--Pivot Control-->
+        <controls:Pivot Title="Couch Potato" SelectionChanged="Pivot_SelectionChanged">
+            <!--Pivot Wanted-->
+            <controls:PivotItem Header="Wanted">
+                <views:MovieWantedView x:Name="wantendList" Margin="0,0,-12,0"/>
+            </controls:PivotItem>
+            <!--Pivot Snatched-->
+            <!--<controls:PivotItem Header="Snatched">
+                <views:ItemView x:Name="snatchedList" Margin="0,0,-12,0"/>
+            </controls:PivotItem>-->
+            <!--Pivot Downloaded-->
+            <!--<controls:PivotItem Header="Downloaded">
+                <views:ItemView x:Name="downloadedList" Margin="0,0,-12,0"/>
+            </controls:PivotItem>-->
+
+        </controls:Pivot>
+    </Grid>
+ </phone:PhoneApplicationPage>
