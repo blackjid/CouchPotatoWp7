@@ -18,14 +18,15 @@ namespace cpwp7.Design
             // Create 15 new movies
             for (var index = 0; index < 15; index++)
             {
-                var curstomer = new Movie
+                var movie = new Movie
                 {
-                    Name = "Name" + index,
+                    Name = ("Name" + index).ToUpper(),
                     Plot = "Plot" + index,
-                    Art = couch.FileCache("/volume1/downloads/dev/CouchPotatoServer/_data/cache/3097ed097ed2430a20f52993eb399672.jpg/")
+                    Art = couch.FileCache("/volume1/downloads/dev/CouchPotatoServer/_data/cache/0e0a26205d1012ba6692972c57eb7618.jpg/"),
+                    Backdrop = couch.FileCache("/volume1/downloads/dev/CouchPotatoServer/_data/cache/761d3c67b737bba21fae2acc6040bde5.jpg")
                 };
 
-                result.Add(curstomer);
+                result.Add(movie);
             }
 
             callback(result, null);
@@ -35,7 +36,7 @@ namespace cpwp7.Design
         {
             // Initialize the CouchPotat API
             couch = new CouchApi();
-            couch.ApiKey = "98c106bf13734da7a630317f930e5d00";
+            couch.ApiKey = "67540cc586b748f68dfdd63c05495cf0";
             couch.Host = "nas.blackjid.info";
             couch.Port = "5007";
         }

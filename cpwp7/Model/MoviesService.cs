@@ -38,7 +38,7 @@ namespace cpwp7.Model
                 {
                     // Create the movies
                     var movie = new Movie();
-                    movie.Name = (string)jtMovie["library"]["titles"][0]["title"];
+                    movie.Name = ((string)jtMovie["library"]["titles"][0]["title"]).ToUpper();
                     movie.Plot = (string)jtMovie["library"]["plot"];
                     movie.Art = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][1]["path"]);
                     movie.Backdrop = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][2]["path"]);

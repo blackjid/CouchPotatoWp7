@@ -75,7 +75,7 @@ namespace cpwp7
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
-            IsolatedStorageExplorer.Explorer.Start("localhost");
+            //IsolatedStorageExplorer.Explorer.Start("192.168.1.107");
 
             // Initialize the settings
             Settings = new AppSettings();
@@ -99,7 +99,7 @@ namespace cpwp7
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
-            IsolatedStorageExplorer.Explorer.RestoreFromTombstone();
+            //IsolatedStorageExplorer.Explorer.RestoreFromTombstone();
 
             // Push Helper
             PushHelper.RegisterPushNotifications();

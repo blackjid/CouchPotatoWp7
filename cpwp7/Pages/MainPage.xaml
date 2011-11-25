@@ -40,14 +40,13 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-
-       <controls:Panorama x:Name="MainPanorama" HorizontalAlignment="Left" 
+        <controls:Panorama x:Name="MainPanorama" HorizontalAlignment="Left" 
                           Title="couchpotato" SelectionChanged="Panorama_SelectionChanged"
                           Background="{Binding Path=AppBackground, Mode=OneWay}">
             <controls:PanoramaItem Header="Latest" Orientation="Horizontal">
                 <views:MovieLatestView x:Name="latestList" Height="435" Width="790" />
         	</controls:PanoramaItem>
-        	<controls:PanoramaItem Header="Wanted">
+            <controls:PanoramaItem Header="Wanted">
                 <views:MovieWantedView x:Name="wantedList"/>
         	</controls:PanoramaItem>
         	<controls:PanoramaItem Header="All">

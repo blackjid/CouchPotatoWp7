@@ -15,7 +15,7 @@ namespace cpwp7.Utilities
         const string PortKeyName = "PortSetting";
 
         // The default value of our settings
-        const string ApiKeySettingDefault = "98c106bf13734da7a630317f930e5d00";
+        const string ApiKeySettingDefault = "67540cc586b748f68dfdd63c05495cf0";
         const string HostSettingDefault = "nas.blackjid.info";
         const string PortSettingDefault = "5007";
 

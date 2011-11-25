@@ -23,8 +23,9 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="{Binding Path=Model.Art, Mode=OneWay}" Width="181" Margin="5" Height="215"/>
+                    <StackPanel Orientation="Horizontal" Width="365">
+                        <Image Source="{Binding Path=Model.Art, Mode=OneWay, Converter={StaticResource imageCacheConverter}}" Width="145" Margin="5" Height="215"/>
+                        <TextBlock Text="{Binding Path=Model.Name, Mode=OneWay}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Width="198" FontFamily="Segoe WP Black" FontSize="26"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

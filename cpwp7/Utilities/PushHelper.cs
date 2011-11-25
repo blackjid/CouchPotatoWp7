@@ -45,7 +45,6 @@ namespace cpwp7.Utilities
 
                 System.Diagnostics.Debug.WriteLine("Connetion: " + pushChannel.ConnectionStatus.ToString());
                 System.Diagnostics.Debug.WriteLine("Bound: " + pushChannel.IsShellTileBound.ToString());
-                System.Diagnostics.Debug.WriteLine("Uri: " + pushChannel.ChannelUri.ToString());
             }
             else
             {
@@ -56,7 +55,6 @@ namespace cpwp7.Utilities
 
                 System.Diagnostics.Debug.WriteLine("Connetion2: " + pushChannel.ConnectionStatus.ToString());
                 System.Diagnostics.Debug.WriteLine("Bound2: " + pushChannel.IsShellTileBound.ToString());
-                System.Diagnostics.Debug.WriteLine("Uri2: " + pushChannel.ChannelUri.ToString());
             }
 
             if (UriUpdated != null && pushChannel.ChannelUri != null)

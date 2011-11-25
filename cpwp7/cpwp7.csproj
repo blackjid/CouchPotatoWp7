@@ -99,6 +99,10 @@
     <Compile Include="Pages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\ImageCacheConverter.cs" />
+    <Compile Include="Utilities\ImageCache.cs" />
+    <Compile Include="Utilities\ImageDownloadHelper.cs" />
+    <Compile Include="Utilities\IsoStoreHelper.cs" />
     <Compile Include="Utilities\UIHelper.cs" />
     <Compile Include="Utilities\PushHelper.cs" />
     <Compile Include="ViewModel\LatestMoviesViewModel.cs" />
@@ -139,6 +143,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="cpwp7_2011_11_24_20_17_28.sap" />
+    <None Include="cpwp7_2011_11_24_20_19_23.sap" />
+    <None Include="cpwp7_2011_11_24_20_21_24.sap" />
+    <None Include="cpwp7_2011_11_24_20_22_26.sap" />
+    <None Include="cpwp7_2011_11_24_20_24_18.sap" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
@@ -165,6 +174,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SplashScreenImage.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utilities\SplashScreenImage.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

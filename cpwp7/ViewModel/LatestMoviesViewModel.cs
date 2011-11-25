@@ -57,15 +57,14 @@ namespace cpwp7.ViewModel
                 }
 
                 // Change panorama background
-                Random rnd = new Random();
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.UriSource = new Uri(Movies[rnd.Next(0, Movies.Count)].Model.Backdrop);
-                ImageBrush imageBrush = new ImageBrush();
-                imageBrush.Opacity = 0.5;
-                imageBrush.Stretch = Stretch.Uniform;
-                imageBrush.ImageSource = bitmapImage;
+                //BitmapImage bitmapImage = new BitmapImage();
+                //bitmapImage.UriSource = new Uri(Movies[0].Model.Backdrop);
+                //ImageBrush imageBrush = new ImageBrush();
+                //imageBrush.Opacity = 0.5;
+                //imageBrush.Stretch = Stretch.Uniform;
+                //imageBrush.ImageSource = bitmapImage;
 
-                App.Current.UI.AppBackground = imageBrush;
+                //App.Current.UI.AppBackground = imageBrush;
             });
 
             

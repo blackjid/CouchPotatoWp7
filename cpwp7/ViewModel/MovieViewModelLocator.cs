@@ -23,11 +23,7 @@ namespace cpwp7.ViewModel
 
             SimpleIoc.Default.Register<WantedMoviesViewModel>();
 
-            //SimpleIoc.Default.GetInstance<WantedMoviesViewModel>();
-
             SimpleIoc.Default.Register<LatestMoviesViewModel>();
-
-            //SimpleIoc.Default.GetInstance<LatestMoviesViewModel>();
         }
 
         /// <summary>
