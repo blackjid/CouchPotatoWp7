@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace cpwp7.Utilities
 {
-    public class CouchApi
+    public class SickApi
     {
         // The settings
         private string sHost;
@@ -25,10 +25,8 @@ namespace cpwp7.Utilities
         private string sBaseUrl;
 
         // The api methods
-        const string MovieListMethod = "movie.list";
-        const string FileCacheMethod = "file.cache";
-
-        #region basic properties
+        const string ShowListMethod = "shows";
+        const string GetPosterMethod = "show.getposter";
 
         /// <summary>
         /// Get or set the API Key to be used by all calls. API key is mandatory for all 
@@ -69,8 +67,6 @@ namespace cpwp7.Utilities
             }
         }
 
-        #endregion
-
         /// <summary>
         /// Get the base url for all calls
         /// </summary>
@@ -82,7 +78,7 @@ namespace cpwp7.Utilities
                 || sApiKey == null || sApiKey.Length == 0)
                 sBaseUrl = null;
             else
-                sBaseUrl = "http://" + sHost + ":" + sPort + "/" + sApiKey + "/";
+                sBaseUrl = "http://" + sHost + ":" + sPort + "/api/" + sApiKey + "/";
 
                 return sBaseUrl; 
         }
@@ -90,7 +86,7 @@ namespace cpwp7.Utilities
         /// <summary>
         /// Constructor
         /// </summary>
-        public CouchApi()
+        public SickApi()
         { 
         
         }
@@ -99,19 +95,19 @@ namespace cpwp7.Utilities
         /// Get the all the movies
         /// </summary>
         /// <returns>A Uri object with the url to the server</returns>
-        public Uri MovieList() 
+        public Uri ShowList() 
         {
-            return new Uri(BaseUrl() + MovieListMethod);
+            return new Uri(BaseUrl() + ShowListMethod);
         }
 
         /// <summary>
-        /// Get the cached file url
+        /// Get the poster url
         /// </summary>
-        /// <param name="_url">the file identifier</param>
+        /// <param name="_id">show id</param>
         /// <returns></returns>
-        public string FileCache(string _url)
+        public string GetPoster(string _id)
         {
-            return BaseUrl() + FileCacheMethod + _url;
+            return BaseUrl() + GetPosterMethod + "/" +_id;
         }
 
         /// <summary>

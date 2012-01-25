@@ -80,6 +80,10 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Design\DesignShowService.cs" />
+    <Compile Include="Model\ShowService.cs" />
+    <Compile Include="Model\IShowService.cs" />
+    <Compile Include="Model\Show.cs" />
     <Compile Include="Pages\AddMovie.xaml.cs">
       <DependentUpon>AddMovie.xaml</DependentUpon>
     </Compile>
@@ -87,6 +91,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\AppSettings.cs" />
+    <Compile Include="Utilities\SickApi.cs" />
     <Compile Include="Utilities\CouchApi.cs" />
     <Compile Include="Design\DesignMovieService.cs" />
     <Compile Include="Pages\MainPage.xaml.cs">
@@ -105,10 +110,16 @@
     <Compile Include="Utilities\IsoStoreHelper.cs" />
     <Compile Include="Utilities\UIHelper.cs" />
     <Compile Include="Utilities\PushHelper.cs" />
+    <Compile Include="ViewModel\AddedShowsViewModel.cs" />
+    <Compile Include="ViewModel\ShowViewModel.cs" />
+    <Compile Include="ViewModel\ShowViewModelLocator.cs" />
     <Compile Include="ViewModel\LatestMoviesViewModel.cs" />
     <Compile Include="ViewModel\MovieViewModel.cs" />
     <Compile Include="ViewModel\MovieViewModelLocator.cs" />
     <Compile Include="ViewModel\WantedMoviesViewModel.cs" />
+    <Compile Include="View\ShowsView.xaml.cs">
+      <DependentUpon>ShowsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MovieLatestView.xaml.cs">
       <DependentUpon>MovieLatestView.xaml</DependentUpon>
     </Compile>
@@ -133,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\ShowsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\MovieLatestView.xaml">
       <SubType>Form</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,11 +158,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpwp7_2011_11_24_20_17_28.sap" />
-    <None Include="cpwp7_2011_11_24_20_19_23.sap" />
-    <None Include="cpwp7_2011_11_24_20_21_24.sap" />
-    <None Include="cpwp7_2011_11_24_20_22_26.sap" />
-    <None Include="cpwp7_2011_11_24_20_24_18.sap" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>

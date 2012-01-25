@@ -13,9 +13,9 @@ using Newtonsoft.Json.Linq;
 
 namespace cpwp7.Model
 {
-    public class MoviesService : IMoviesService
+    public class ShowService : IShowService
     {
-        public void GetMovies(Action<IList<Movie>, Exception> callback)
+        public void GetShows(Action<IList<Show>, Exception> callback)
         {
             // Create the client
             WebClient client = new WebClient();
@@ -30,27 +30,29 @@ namespace cpwp7.Model
                 }
 
                 // A list to store the movies
-                var result = new List<Movie>();
+                var result = new List<Show>();
 
                 // Parse the json response
                 JObject o = JObject.Parse(e.Result);
-                foreach (JToken jtMovie in o["movies"])
+                foreach (JToken jtShow in o["data"])
                 {
                     // Create the movies
-                    var movie = new Movie();
-                    movie.Name = ((string)jtMovie["library"]["titles"][0]["title"]).ToUpper();
-                    movie.Plot = (string)jtMovie["library"]["plot"];
-                    movie.Art = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][0]["path"]);
-                    //movie.Backdrop = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][2]["path"]);
+                    var show = new Show();
+                    show.Name = ((string)jtShow.First["show_name"]).ToUpper();
+                    //tvshow.Plot = (string)jtShow["library"]["plot"];
 
-                    result.Add(movie);
+                    show.Art = App.Current.Sick.GetPoster(((JProperty)jtShow).Name.ToString());
+                    
+                        //movie.Backdrop = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][2]["path"]);
+
+                    result.Add(show);
                 }
 
                 callback(result, null);
             };
 
             // Make the call to the server
-            client.DownloadStringAsync(App.Current.Couch.MovieList());
+            client.DownloadStringAsync(App.Current.Sick.ShowList());
         }        
     }
 }

@@ -13,7 +13,7 @@ namespace cpwp7.ViewModel
 
             if (ViewModelBase.IsInDesignModeStatic)
             {
-                SimpleIoc.Default.Register<IMoviesService, Design.DesignDataService>();
+                SimpleIoc.Default.Register<IMoviesService, Design.DesignMovieDataService>();
 
             }
             else

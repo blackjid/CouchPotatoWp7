@@ -16,7 +16,7 @@
                             mc:Ignorable="d"
                             d:DesignWidth="480"
                             d:DesignHeight="768"
-                            shell:SystemTray.IsVisible="True">
+                            shell:SystemTray.IsVisible="True" Loaded="mainPage_Loaded">
     <phone:PhoneApplicationPage.Resources>
         <shell:ApplicationBar x:Key="wantedAppBar" IsVisible="True" IsMenuEnabled="True" Opacity="0.95">
             <shell:ApplicationBarIconButton IconUri="Icons\AppBar.New.png" Text="Add" Click="AppBarNewMovie_Click"/>
@@ -41,17 +41,14 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <controls:Panorama x:Name="MainPanorama" HorizontalAlignment="Left" 
-                          Title="couchpotato" SelectionChanged="Panorama_SelectionChanged"
+                          Title="couch beard" SelectionChanged="Panorama_SelectionChanged"
                           Background="{Binding Path=AppBackground, Mode=OneWay}">
-            <controls:PanoramaItem Header="Latest" Orientation="Horizontal">
-                <views:MovieLatestView x:Name="latestList" Height="435" Width="790" />
-        	</controls:PanoramaItem>
-            <controls:PanoramaItem Header="Wanted">
-                <views:MovieWantedView x:Name="wantedList"/>
-        	</controls:PanoramaItem>
-        	<controls:PanoramaItem Header="All">
+        	<controls:PanoramaItem Header="Movies">
                 <views:MovieWantedView x:Name="allMoviesList"/>
         	</controls:PanoramaItem>
+            <controls:PanoramaItem Header="TV Shows">
+                <views:ShowsView x:Name="tvShowsList"/>
+            </controls:PanoramaItem>
         </controls:Panorama>
     </Grid>
 

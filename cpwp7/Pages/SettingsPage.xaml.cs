@@ -23,8 +23,8 @@ namespace cpwp7
         
         private void SaveSettings_Click(object sender, EventArgs e)
         {
-            App.Current.Settings.HostSetting = serverHost_text.Text;
-            App.Current.Settings.ApiKeySetting = apiKey_text.Text;            
+            App.Current.Settings.CPHostSetting = serverHost_text.Text;
+            App.Current.Settings.CPApiKeySetting = apiKey_text.Text;            
 
             NavigationService.GoBack();
         }

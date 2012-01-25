@@ -28,6 +28,7 @@ namespace cpwp7
         public AppSettings Settings { get; private set; }
 
         public CouchApi Couch { get; private set; }
+        public SickApi Sick { get; private set; }
 
         public UIHelper UI { get; private set; }
 
@@ -82,9 +83,15 @@ namespace cpwp7
 
             // Initialize the CouchPotat API
             Couch = new CouchApi();
-            Couch.ApiKey = Settings.ApiKeySetting;
-            Couch.Host = Settings.HostSetting;
-            Couch.Port = Settings.PortSetting;
+            Couch.ApiKey = Settings.CPApiKeySetting;
+            Couch.Host = Settings.CPHostSetting;
+            Couch.Port = Settings.CPPortSetting;
+
+            // Initialize the Sickbeard API
+            Sick = new SickApi();
+            Sick.ApiKey = Settings.SBApiKeySetting;
+            Sick.Host = Settings.SBHostSetting;
+            Sick.Port = Settings.SBPortSetting;
 
             // Background
             UI = new UIHelper();

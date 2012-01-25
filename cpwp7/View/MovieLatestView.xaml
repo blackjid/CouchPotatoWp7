@@ -11,7 +11,7 @@
     d:DesignHeight="800" d:DesignWidth="480">
 
     <UserControl.DataContext>
-        <Binding Path="LatestMovies" Source="{StaticResource Locator}" />
+        <Binding Path="LatestMovies" Source="{StaticResource MovieLocator}" />
     </UserControl.DataContext>
 
     <Grid x:Name="LayoutRoot">

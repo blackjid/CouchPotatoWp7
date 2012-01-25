@@ -10,14 +10,20 @@ namespace cpwp7.Utilities
         IsolatedStorageSettings settings;
 
         // The isolated storage key names of our settings
-        const string ApiKeyKeyName = "ApiKeySetting";
-        const string HostKeyName = "HostSetting";
-        const string PortKeyName = "PortSetting";
+        const string CPApiKeyKeyName = "CPApiKeySetting";
+        const string CPHostKeyName = "CPHostSetting";
+        const string CPPortKeyName = "CPPortSetting";
+        const string SBApiKeyKeyName = "SBApiKeySetting";
+        const string SBHostKeyName = "SBHostSetting";
+        const string SBPortKeyName = "SBPortSetting";
 
         // The default value of our settings
-        const string ApiKeySettingDefault = "67540cc586b748f68dfdd63c05495cf0";
-        const string HostSettingDefault = "nas.blackjid.info";
-        const string PortSettingDefault = "5007";
+        const string CPApiKeySettingDefault = "7c9fad341b764a5f8c4781c76f3cbc24";
+        const string CPHostSettingDefault = "nas.blackjid.info";
+        const string CPPortSettingDefault = "5050";
+        const string SBApiKeySettingDefault = "f5d6701f555447546b6030432d15e229";
+        const string SBHostSettingDefault = "nas.blackjid.info";
+        const string SBPortSettingDefault = "8081";
 
         /// <summary>
         /// Constructor that gets the application settings.
@@ -93,17 +99,17 @@ namespace cpwp7.Utilities
         }
 
         /// <summary>
-        /// Property to get and set a Api Key Setting Key.
+        /// Property to get and set a CouchPotato Api Key Setting Key.
         /// </summary>
-        public string ApiKeySetting
+        public string CPApiKeySetting
         {
             get
             {
-                return GetValueOrDefault<string>(ApiKeyKeyName, ApiKeySettingDefault);
+                return GetValueOrDefault<string>(CPApiKeyKeyName, CPApiKeySettingDefault);
             }
             set
             {
-                if (AddOrUpdateValue(ApiKeyKeyName, value))
+                if (AddOrUpdateValue(CPApiKeyKeyName, value))
                 {
                     Save();
                 }
@@ -111,17 +117,17 @@ namespace cpwp7.Utilities
         }
 
         /// <summary>
-        /// Property to get and set a Host Setting Key.
+        /// Property to get and set a CouchPotato Host Setting Key.
         /// </summary>
-        public string HostSetting
+        public string CPHostSetting
         {
             get
             {
-                return GetValueOrDefault<string>(HostKeyName, HostSettingDefault);
+                return GetValueOrDefault<string>(CPHostKeyName, CPHostSettingDefault);
             }
             set
             {
-                if (AddOrUpdateValue(HostKeyName, value))
+                if (AddOrUpdateValue(CPHostKeyName, value))
                 {
                     Save();
                 }
@@ -129,17 +135,71 @@ namespace cpwp7.Utilities
         }
 
         /// <summary>
-        /// Property to get and set a Port Setting Key.
+        /// Property to get and set a CouchPotato Port Setting Key.
         /// </summary>
-        public string PortSetting
+        public string CPPortSetting
         {
             get
             {
-                return GetValueOrDefault<string>(PortKeyName, PortSettingDefault);
+                return GetValueOrDefault<string>(CPPortKeyName, CPPortSettingDefault);
             }
             set
             {
-                if (AddOrUpdateValue(PortKeyName, value))
+                if (AddOrUpdateValue(CPPortKeyName, value))
+                {
+                    Save();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Property to get and set a SickBeard Api Key Setting Key.
+        /// </summary>
+        public string SBApiKeySetting
+        {
+            get
+            {
+                return GetValueOrDefault<string>(SBApiKeyKeyName, SBApiKeySettingDefault);
+            }
+            set
+            {
+                if (AddOrUpdateValue(SBApiKeyKeyName, value))
+                {
+                    Save();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Property to get and set a SickBeard Host Setting Key.
+        /// </summary>
+        public string SBHostSetting
+        {
+            get
+            {
+                return GetValueOrDefault<string>(SBHostKeyName, SBHostSettingDefault);
+            }
+            set
+            {
+                if (AddOrUpdateValue(SBHostKeyName, value))
+                {
+                    Save();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Property to get and set a SickBeard Port Setting Key.
+        /// </summary>
+        public string SBPortSetting
+        {
+            get
+            {
+                return GetValueOrDefault<string>(SBPortKeyName, SBPortSettingDefault);
+            }
+            set
+            {
+                if (AddOrUpdateValue(SBPortKeyName, value))
                 {
                     Save();
                 }

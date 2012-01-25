@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
+using System.ComponentModel;
 
 namespace cpwp7.Utilities
 {
@@ -10,6 +11,8 @@ namespace cpwp7.Utilities
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (DesignerProperties.IsInDesignTool)
+                return value;
             return ImageCache.GetImage(value.ToString());    
             
         }
