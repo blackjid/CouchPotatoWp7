@@ -16,7 +16,7 @@
                             mc:Ignorable="d"
                             d:DesignWidth="480"
                             d:DesignHeight="768"
-                            shell:SystemTray.IsVisible="True" Loaded="mainPage_Loaded">
+                            shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.Resources>
         <shell:ApplicationBar x:Key="wantedAppBar" IsVisible="True" IsMenuEnabled="True" Opacity="0.95">
             <shell:ApplicationBarIconButton IconUri="Icons\AppBar.New.png" Text="Add" Click="AppBarNewMovie_Click"/>

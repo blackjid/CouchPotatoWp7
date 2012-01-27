@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.IO.IsolatedStorage;
+using System.ComponentModel;
 
 namespace cpwp7.Utilities
 {
@@ -31,8 +32,11 @@ namespace cpwp7.Utilities
         public AppSettings()
         {
             // Get the settings for this application.
-            settings = IsolatedStorageSettings.ApplicationSettings;
+            if (!DesignerProperties.IsInDesignTool)
+                settings = IsolatedStorageSettings.ApplicationSettings;
         }
+
+        #region general methods
 
         /// <summary>
         /// Update a setting value for our application. If the setting does not
@@ -98,6 +102,10 @@ namespace cpwp7.Utilities
             settings.Save();
         }
 
+        #endregion
+
+        #region Couch Potato methods
+
         /// <summary>
         /// Property to get and set a CouchPotato Api Key Setting Key.
         /// </summary>
@@ -152,6 +160,10 @@ namespace cpwp7.Utilities
             }
         }
 
+        #endregion
+
+        #region Sick Beard methods
+
         /// <summary>
         /// Property to get and set a SickBeard Api Key Setting Key.
         /// </summary>
@@ -205,5 +217,8 @@ namespace cpwp7.Utilities
                 }
             }
         }
+
+        #endregion
+
     }
 }

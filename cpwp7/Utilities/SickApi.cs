@@ -27,6 +27,9 @@ namespace cpwp7.Utilities
         // The api methods
         const string ShowListMethod = "shows";
         const string GetPosterMethod = "show.getposter";
+        const string GetSeasonListMethod = "show.seasonlist";
+        
+        #region basic properties
 
         /// <summary>
         /// Get or set the API Key to be used by all calls. API key is mandatory for all 
@@ -66,6 +69,8 @@ namespace cpwp7.Utilities
                 sPort = value == null || value.Length == 0 ? null : value;
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Get the base url for all calls
@@ -108,6 +113,16 @@ namespace cpwp7.Utilities
         public string GetPoster(string _id)
         {
             return BaseUrl() + GetPosterMethod + "/" +_id;
+        }
+
+        /// <summary>
+        /// Get the poster url
+        /// </summary>
+        /// <param name="_id">show id</param>
+        /// <returns></returns>
+        public Uri GetSeasonList(string _id)
+        {
+            return new Uri(BaseUrl() + GetSeasonListMethod + "/" + _id);
         }
 
         /// <summary>

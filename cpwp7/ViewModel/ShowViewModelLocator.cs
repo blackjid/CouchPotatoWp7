@@ -22,6 +22,8 @@ namespace cpwp7.ViewModel
             }
 
             SimpleIoc.Default.Register<AddedShowsViewModel>();
+
+            SimpleIoc.Default.Register<SeasonViewModel>();
         }
 
         /// <summary>
@@ -33,6 +35,17 @@ namespace cpwp7.ViewModel
             {
                 return ServiceLocator.Current.GetInstance<AddedShowsViewModel>();
             }
-        }       
+        }
+
+        /// <summary>
+        /// Gets the Main property.
+        /// </summary>
+        public SeasonViewModel ShowSeasons
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SeasonViewModel>();
+            }
+        } 
     }
 }

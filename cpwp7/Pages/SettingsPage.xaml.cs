@@ -18,13 +18,20 @@ namespace cpwp7
     {
         public SettingsPage()
         {
-            InitializeComponent();            
+            InitializeComponent();  
+          
         }
         
         private void SaveSettings_Click(object sender, EventArgs e)
         {
-            App.Current.Settings.CPHostSetting = serverHost_text.Text;
-            App.Current.Settings.CPApiKeySetting = apiKey_text.Text;            
+            App.Current.Settings.CPHostSetting = cpServerHost_text.Text;
+            App.Current.Settings.CPApiKeySetting = cpApiKey_text.Text;
+            App.Current.Settings.CPPortSetting = cpPort_text.Text;
+
+
+            App.Current.Settings.SBHostSetting = sbServerHost_text.Text;
+            App.Current.Settings.SBApiKeySetting = sbApiKey_text.Text;
+            App.Current.Settings.SBPortSetting = sbPort_text.Text;        
 
             NavigationService.GoBack();
         }

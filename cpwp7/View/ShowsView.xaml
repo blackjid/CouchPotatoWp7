@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -14,16 +15,22 @@
     </UserControl.DataContext>
 
     <Grid x:Name="LayoutRoot">
-        <ListBox ItemsSource="{Binding Path=Shows}">
+        <ListBox ItemsSource="{Binding Path=Shows}" SelectionChanged="ListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="{Binding Path=Model.Art, Mode=OneWay, Converter={StaticResource imageCacheConverter}}" Width="90"/>
-                        <StackPanel Margin="0,0,0,17" Width="432" Height="78">
-                            <TextBlock Text="{Binding Path=Model.Name, Mode=OneWay}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                            <!--<TextBlock Text="{Binding Path=Model.Plot, Mode=OneWay}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>-->
-                        </StackPanel>
-                    </StackPanel>
+                        <ListBoxItem toolkit:TiltEffect.IsTiltEnabled="True">
+                            <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,0,0,8" Width="411">
+                                <Image x:Name="image" Source="{Binding Path=Model.Art, Mode=OneWay, Converter={StaticResource imageCacheConverter}}" Width="90" Margin="0"/>
+                                <Grid Height="{Binding Height, ElementName=image}" Margin="0,8" Width="321">
+                        	        <Grid.RowDefinitions>
+                        	    	    <RowDefinition Height="*"/>
+									    <RowDefinition Height="Auto"/>
+								    </Grid.RowDefinitions>
+								    <TextBlock TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontFamily="Segoe WP Black" FontSize="26.667" Text="{Binding Model.Name}" d:LayoutOverrides="Height"/>
+                        	        <TextBlock Text="{Binding Model.NextAir}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="18.667" Margin="0,8,0,0" d:LayoutOverrides="HorizontalAlignment, GridBox" HorizontalAlignment="Right" Width="99" VerticalAlignment="Top" Grid.Row="1"/>
+                                </Grid>
+                            </StackPanel>
+                        </ListBoxItem>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

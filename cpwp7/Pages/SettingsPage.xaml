@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:utilities="clr-namespace:cpwp7.Utilities"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -20,29 +21,32 @@
     
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        <!--Pivot Control-->
+        <controls:Pivot Title="Settings">
+            <!--Pivot item one-->
+            <controls:PivotItem Header="CouchPotato">
+                <StackPanel>
+                    <TextBlock Height="35" Margin="14,0,12,-14" TextWrapping="Wrap" Text="Server Host"/>
+                    <TextBox x:Name="cpServerHost_text" Text="{Binding Path=CPHostSetting, Mode=OneWay, Source={StaticResource appSettings}}" Height="77" TextWrapping="Wrap"/>
+                    <TextBlock Height="35" Margin="14,0,12,-14" TextWrapping="Wrap" Text="Api Key"/>
+                    <TextBox x:Name="cpApiKey_text" Text="{Binding Path=CPApiKeySetting, Mode=OneWay, Source={StaticResource appSettings}}" Height="77" TextWrapping="Wrap"/>
+                    <TextBlock Height="35" Margin="14,0,12,-14" TextWrapping="Wrap" Text="Port"/>
+                    <TextBox x:Name="cpPort_text" Text="{Binding Path=CPPortSetting, Mode=OneWay, Source={StaticResource appSettings}}" Height="77" TextWrapping="Wrap"/>
+                </StackPanel>
+            </controls:PivotItem>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="Couch Potato" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
-
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel>
-            	<TextBlock Height="35" Margin="14,0,12,-14" TextWrapping="Wrap" Text="Server Host"/>
-                <TextBox x:Name="serverHost_text" Text="{Binding Path=HostSetting, Mode=OneWay, Source={StaticResource appSettings}}" Height="77" TextWrapping="Wrap"/>
-            	<TextBlock Height="35" Margin="14,0,12,-14" TextWrapping="Wrap" Text="Api Key"/>
-                <TextBox x:Name="apiKey_text" Text="{Binding Path=ApiKeySetting, Mode=OneWay, Source={StaticResource appSettings}}" Height="77" TextWrapping="Wrap"/>
-                <TextBlock Height="35" Margin="14,0,12,-14" TextWrapping="Wrap" Text="Port"/>
-                <TextBox x:Name="portKey_text" Text="{Binding Path=PortSetting, Mode=OneWay, Source={StaticResource appSettings}}" Height="77" TextWrapping="Wrap"/>
-            </StackPanel>
-            
-        </Grid>
+            <!--Pivot item two-->
+            <controls:PivotItem Header="SickBeard">
+                <StackPanel>
+                    <TextBlock Height="35" Margin="14,0,12,-14" TextWrapping="Wrap" Text="Server Host"/>
+                    <TextBox x:Name="sbServerHost_text" Text="{Binding Path=SBHostSetting, Mode=OneWay, Source={StaticResource appSettings}}" Height="77" TextWrapping="Wrap"/>
+                    <TextBlock Height="35" Margin="14,0,12,-14" TextWrapping="Wrap" Text="Api Key"/>
+                    <TextBox x:Name="sbApiKey_text" Text="{Binding Path=SBApiKeySetting, Mode=OneWay, Source={StaticResource appSettings}}" Height="77" TextWrapping="Wrap"/>
+                    <TextBlock Height="35" Margin="14,0,12,-14" TextWrapping="Wrap" Text="Port"/>
+                    <TextBox x:Name="sbPort_text" Text="{Binding Path=SBPortSetting, Mode=OneWay, Source={StaticResource appSettings}}" Height="77" TextWrapping="Wrap"/>
+                </StackPanel>
+            </controls:PivotItem>
+        </controls:Pivot>
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->

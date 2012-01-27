@@ -81,6 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Design\DesignShowService.cs" />
+    <Compile Include="Model\Episode.cs" />
+    <Compile Include="Model\Season.cs" />
+    <Compile Include="Model\Movie.cs" />
     <Compile Include="Model\ShowService.cs" />
     <Compile Include="Model\IShowService.cs" />
     <Compile Include="Model\Show.cs" />
@@ -90,6 +93,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ShowPage.xaml.cs">
+      <DependentUpon>ShowPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\AppSettings.cs" />
     <Compile Include="Utilities\SickApi.cs" />
     <Compile Include="Utilities\CouchApi.cs" />
@@ -98,7 +104,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\IMoviesService.cs" />
-    <Compile Include="Model\Movie.cs" />
     <Compile Include="Model\MoviesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\SettingsPage.xaml.cs">
@@ -111,12 +116,16 @@
     <Compile Include="Utilities\UIHelper.cs" />
     <Compile Include="Utilities\PushHelper.cs" />
     <Compile Include="ViewModel\AddedShowsViewModel.cs" />
+    <Compile Include="ViewModel\SeasonViewModel.cs" />
     <Compile Include="ViewModel\ShowViewModel.cs" />
     <Compile Include="ViewModel\ShowViewModelLocator.cs" />
     <Compile Include="ViewModel\LatestMoviesViewModel.cs" />
     <Compile Include="ViewModel\MovieViewModel.cs" />
     <Compile Include="ViewModel\MovieViewModelLocator.cs" />
     <Compile Include="ViewModel\WantedMoviesViewModel.cs" />
+    <Compile Include="View\SeasonsView.xaml.cs">
+      <DependentUpon>SeasonsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ShowsView.xaml.cs">
       <DependentUpon>ShowsView.xaml</DependentUpon>
     </Compile>
@@ -141,6 +150,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ShowPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SeasonsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
