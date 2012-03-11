@@ -16,17 +16,38 @@
 
     <Grid x:Name="LayoutRoot">
         <ListBox ItemsSource="{Binding Path=Movies}">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <toolkit:WrapPanel Width="800" />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Width="365">
-                        <Image Source="{Binding Path=Model.Art, Mode=OneWay, Converter={StaticResource imageCacheConverter}}" Width="145" Margin="5" Height="215"/>
-                        <TextBlock Text="{Binding Path=Model.Name, Mode=OneWay}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Width="198" FontFamily="Segoe WP Black" FontSize="26"/>
-                    </StackPanel>
+                    <ListBoxItem toolkit:TiltEffect.IsTiltEnabled="True">
+                        <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,0,0,8" Width="456">
+                            <Image x:Name="image" Source="{Binding Path=Model.Art, Mode=OneWay, Converter={StaticResource imageCacheConverter}}" Width="100" VerticalAlignment="Top"/>
+                            <Grid Height="{Binding Height, ElementName=image}" Width="356">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock TextWrapping="Wrap" Grid.Row="0" Style="{StaticResource PhoneTextExtraLargeStyle}" FontFamily="Segoe WP Black" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Text="{Binding Model.Name}" d:LayoutOverrides="Height"/>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Model.Year}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeSmall}" d:LayoutOverrides="GridBox" Foreground="Silver"/>
+                                    <StackPanel Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal">
+                                        <Image Source="/Icons/imdb.png" Stretch="Uniform" Height="20" d:LayoutOverrides="Height"/>
+                                        <TextBlock TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeSmall}" Height="28" Foreground="Silver" Width="24" Text="7.5"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" HorizontalAlignment="Left" Orientation="Horizontal">
+                                        <Image Source="/Icons/rottentomatoes.png" Stretch="Uniform" Height="20" d:LayoutOverrides="Height"/>
+                                        <TextBlock TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="Silver" Text="85%"/>
+                                    </StackPanel>
+                                </Grid>
+                                <TextBlock Text="{Binding Model.Plot}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeNormal}" VerticalAlignment="Top" Grid.Row="2" TextTrimming="WordEllipsis" Height="88" d:LayoutOverrides="GridBox"/>
+                            </Grid>
+                        </StackPanel>
+                    </ListBoxItem>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
