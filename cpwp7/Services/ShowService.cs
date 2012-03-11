@@ -10,8 +10,9 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+using cpwp7.Model;
 
-namespace cpwp7.Model
+namespace cpwp7.Services
 {
     public class ShowService : IShowService
     {

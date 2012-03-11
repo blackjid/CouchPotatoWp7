@@ -3,7 +3,7 @@ using cpwp7.Model;
 using cpwp7.Utilities;
 using System.Collections.Generic;
 
-namespace cpwp7.Design
+namespace cpwp7.Services
 {
     public class DesignShowDataService : IShowService
     {

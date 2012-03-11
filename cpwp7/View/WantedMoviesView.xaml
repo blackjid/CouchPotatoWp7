@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="cpwp7.View.WantedMoviesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <UserControl.DataContext>
+        <Binding Path="WantedMovies" Source="{StaticResource ViewModelLocator}" />
+    </UserControl.DataContext>
+
+    <Grid x:Name="LayoutRoot">
+        <ListBox ItemsSource="{Binding Path=Movies}">
+        	<ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ListBoxItem toolkit:TiltEffect.IsTiltEnabled="True">
+                        <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,0,0,8" Width="456">
+                            <Image x:Name="image" Source="{Binding Path=Model.Art, Mode=OneWay, Converter={StaticResource imageCacheConverter}}" Width="100" VerticalAlignment="Top"/>
+                            <Grid Height="{Binding Height, ElementName=image}" Width="356">
+                        	    <Grid.RowDefinitions>
+                        	    	<RowDefinition Height="Auto"/>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="*"/>
+								</Grid.RowDefinitions>
+								<TextBlock TextWrapping="Wrap" Grid.Row="0" Style="{StaticResource PhoneTextExtraLargeStyle}" FontFamily="Segoe WP Black" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Text="{Binding Model.Name}" d:LayoutOverrides="Height"/>
+                        	    <Grid Grid.Row="1">
+                        	    	<Grid.ColumnDefinitions>
+                        	    		<ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Model.Year}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeSmall}" d:LayoutOverrides="GridBox" Foreground="Silver"/>
+                        	    	<StackPanel Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal">
+                        	    		<Image Source="/Icons/imdb.png" Stretch="Uniform" Height="20" d:LayoutOverrides="Height"/>
+                        	    		<TextBlock TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeSmall}" Height="28" Foreground="Silver" Width="24" Text="7.5"/>
+                        	    	</StackPanel>
+                        	    	<StackPanel Grid.Column="2" HorizontalAlignment="Left" Orientation="Horizontal">
+                        	    		<Image Source="/Icons/rottentomatoes.png" Stretch="Uniform" Height="20" d:LayoutOverrides="Height"/>
+                        	    		<TextBlock TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="Silver" Text="85%"/>
+                        	    	</StackPanel>
+                        	    </Grid>
+                                <TextBlock Text="{Binding Model.Plot}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeNormal}" VerticalAlignment="Top" Grid.Row="2" TextTrimming="WordEllipsis" Height="88" d:LayoutOverrides="GridBox"/>
+                            </Grid>
+                        </StackPanel>
+                    </ListBoxItem>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

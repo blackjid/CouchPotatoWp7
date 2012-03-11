@@ -4,6 +4,7 @@ using cpwp7.Model;
 using System.Collections.Generic;
 using System;
 using System.Windows;
+using cpwp7.Services;
 
 namespace cpwp7.ViewModel
 {
@@ -12,7 +13,7 @@ namespace cpwp7.ViewModel
     {
 
         // To store the Movies service returned by the locator
-        private readonly IMoviesService _moviesService;
+        private readonly IMovieService _moviesService;
 
         // To store the movies. It should be bind the the listbox in the view
         public ObservableCollection<MovieViewModel> Movies
@@ -24,14 +25,14 @@ namespace cpwp7.ViewModel
         /// <summary>
         /// Initializes a new instance of the WantedMoviesViewModel class.
         /// </summary>
-        public WantedMoviesViewModel(IMoviesService moviesService)
+        public WantedMoviesViewModel(IMovieService moviesService)
         {
             // The data service
             _moviesService = moviesService;
 
             // Get all the movies and add them to the Movies collection
             Movies = new ObservableCollection<MovieViewModel>();
-            _moviesService.GetMovies((result, error) =>
+            _moviesService.GetWanted((result, error) =>
             {
                 if (error != null)
                 {

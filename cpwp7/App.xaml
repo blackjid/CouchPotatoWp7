@@ -11,8 +11,7 @@
 
     <Application.Resources>
         <!--Global View Model Locator-->
-        <vm:MovieViewModelLocator x:Key="MovieLocator" d:IsDataSource="True"  />
-        <vm:ShowViewModelLocator x:Key="ShowLocator" d:IsDataSource="True"  />
+        <vm:ViewModelLocator x:Key="ViewModelLocator" d:IsDataSource="True"  />
         <utilities:ImageCacheConverter x:Key="imageCacheConverter" />
     </Application.Resources>
 

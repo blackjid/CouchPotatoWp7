@@ -9,8 +9,6 @@ namespace cpwp7.Utilities
 
         public delegate void UriUpdatedEventHandler(string uri);
 
-        public event UriUpdatedEventHandler UriUpdated;
-
         public delegate void ErrorEventHandler(NotificationChannelErrorEventArgs e);
 
         public event ErrorEventHandler Error;
@@ -57,10 +55,10 @@ namespace cpwp7.Utilities
                 System.Diagnostics.Debug.WriteLine("Bound2: " + pushChannel.IsShellTileBound.ToString());
             }
 
-            if (UriUpdated != null && pushChannel.ChannelUri != null)
-            {
-                UriUpdated(pushChannel.ChannelUri.ToString());
-            }
+            //if (UriUpdated != null && pushChannel.ChannelUri != null)
+            //{
+            //    UriUpdated(pushChannel.ChannelUri.ToString());
+            //}
         }
 
         public void CloseChannel()
@@ -95,7 +93,7 @@ namespace cpwp7.Utilities
         /// Holds the push channel that is created or found.
         private static HttpNotificationChannel pushChannel;
 
-        private const string channelName = "CouchPotatoChannel";
+        private const string channelName = "CouchBeardChannel";
 
         #endregion
 
@@ -103,14 +101,9 @@ namespace cpwp7.Utilities
 
         private void PushChannel_ChannelUriUpdated(object sender, NotificationChannelUriEventArgs e)
         {
-            if (UriUpdated != null)
-            {
-                UriUpdated(e.ChannelUri.ToString());
+            App.Current.Couch.RegisterPushKey(e.ChannelUri);
 
-                App.Current.Couch.RegisterPushKey(e.ChannelUri);
-
-                System.Diagnostics.Debug.WriteLine("Changed to:" + e.ChannelUri.ToString());
-            }
+            System.Diagnostics.Debug.WriteLine("Changed to:" + e.ChannelUri.ToString());
         }
 
         private void PushChannel_ErrorOccurred(object sender, NotificationChannelErrorEventArgs e)

@@ -18,19 +18,15 @@
                             d:DesignHeight="768"
                             shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.Resources>
-        <shell:ApplicationBar x:Key="wantedAppBar" IsVisible="True" IsMenuEnabled="True" Opacity="0.95">
-            <shell:ApplicationBarIconButton IconUri="Icons\AppBar.New.png" Text="Add" Click="AppBarNewMovie_Click"/>
+        <shell:ApplicationBar x:Key="showsAppBar" IsVisible="True" IsMenuEnabled="True" Opacity="0.95">
+            <shell:ApplicationBarIconButton Text="Add Show" Click="AppBarAddShow_Click" IconUri="/Icons/AppBar.New.png"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="Settings" Click="AppBarSettings_Click"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
-        <shell:ApplicationBar x:Key="latestAppBar" IsVisible="True" IsMenuEnabled="True" Mode="Minimized" Opacity="0.95">
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="Settings" Click="AppBarSettings_Click"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-        <shell:ApplicationBar x:Key="moviesAppBar" IsVisible="True" IsMenuEnabled="True" Mode="Minimized" Opacity="0.95">
-            <shell:ApplicationBarIconButton IconUri="Icons\AppBar.ClearAll.png" Text="Clear Downloaded" Click="AppBarClearMovies_Click"/>
+        <shell:ApplicationBar x:Key="moviesAppBar" IsVisible="True" IsMenuEnabled="True"  Opacity="0.95">
+            <shell:ApplicationBarIconButton Text="Add Movie" Click="AppBarAddMovie_Click" IconUri="/Icons/AppBar.New.png"/>
+            <shell:ApplicationBarIconButton Text="All" Click="AppBarAllMovies_Click" IconUri="/Icons/AppBar.New.png"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="Settings" Click="AppBarSettings_Click"/>
             </shell:ApplicationBar.MenuItems>
@@ -39,17 +35,30 @@
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <!--<Grid x:Name="LayoutRoot" Background="Transparent">
         <controls:Panorama x:Name="MainPanorama" HorizontalAlignment="Left" 
                           Title="couch beard" SelectionChanged="Panorama_SelectionChanged"
                           Background="{Binding Path=AppBackground, Mode=OneWay}">
         	<controls:PanoramaItem Header="Movies">
-                <views:MovieWantedView x:Name="allMoviesList"/>
+                <views:MoviesView x:Name="allMoviesList"/>
         	</controls:PanoramaItem>
             <controls:PanoramaItem Header="TV Shows">
                 <views:ShowsView x:Name="tvShowsList"/>
             </controls:PanoramaItem>
         </controls:Panorama>
+    </Grid>-->
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <controls:Pivot Title="Couchbeard" SelectionChanged="Pivot_SelectionChanged">
+            <controls:PivotItem Header="Movies">
+                <views:WantedMoviesView x:Name="allMoviesList"/>
+            </controls:PivotItem>
+
+            <controls:PivotItem Header="TvShows">
+                <views:ShowsView x:Name="tvShowsList"/>
+            </controls:PivotItem>
+        </controls:Pivot>
     </Grid>
 
 </phone:PhoneApplicationPage>

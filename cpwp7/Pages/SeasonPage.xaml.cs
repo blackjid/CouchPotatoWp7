@@ -9,12 +9,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Microsoft.Phone.Controls;
 
-namespace cpwp7.View
+namespace cpwp7.Pages
 {
-    public partial class MovieLatestView : UserControl
+    public partial class SeasonPage : PhoneApplicationPage
     {
-        public MovieLatestView()
+        public SeasonPage()
         {
             InitializeComponent();
         }

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using cpwp7.Model;
 
-namespace cpwp7.Model
+namespace cpwp7.Services
 {
     public interface IShowService
     {   

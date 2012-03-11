@@ -25,7 +25,15 @@ namespace cpwp7
             this.DataContext = App.Current.UI;
         }
 
-        private void AppBarNewMovie_Click(object sender, EventArgs e)
+        private void AppBarAddMovie_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/AddMovie.xaml", UriKind.Relative));
+        }
+        private void AppBarAllMovies_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/AllMovies.xaml", UriKind.Relative));
+        }
+        private void AppBarAddShow_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/AddMovie.xaml", UriKind.Relative));
         }
@@ -39,31 +47,19 @@ namespace cpwp7
         }
         
 
-        private void Panorama_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void Pivot_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            switch (((Panorama)sender).SelectedIndex)
+            switch (((Pivot)sender).SelectedIndex)
             {
                 case 0:
-                    ApplicationBar = ((ApplicationBar)this.Resources["latestAppBar"]);
+                    ApplicationBar = ((ApplicationBar)this.Resources["moviesAppBar"]);
                     break;
 
                 case 1:
-                    ApplicationBar = ((ApplicationBar)this.Resources["wantedAppBar"]);
+                    ApplicationBar = ((ApplicationBar)this.Resources["showsAppBar"]);
                     break;
 
-                case 2:
-                    ApplicationBar = ((ApplicationBar)this.Resources["moviesAppBar"]);
-                    break;
             }
-        }
-        
-        public void changeBackground(Uri _backUri)
-        {
-            BitmapImage bitmapImage = new BitmapImage(_backUri);
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = bitmapImage;
-
-            MainPanorama.Background = imageBrush;
         }
     }
 }

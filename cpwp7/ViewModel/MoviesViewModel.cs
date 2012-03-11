@@ -4,19 +4,22 @@ using cpwp7.Model;
 using System.Collections.Generic;
 using System;
 using System.Windows;
+using System.Windows.Navigation;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using cpwp7.Services;
 
 namespace cpwp7.ViewModel
 {
    
-    public class SeasonViewModel : ViewModelBase
+    public class MoviesViewModel : ViewModelBase
     {
 
         // To store the Movies service returned by the locator
-        private readonly IShowService _showService;
+        private readonly IMovieService _moviesService;
 
         // To store the movies. It should be bind the the listbox in the view
-        public ObservableCollection<Season> Seasons
+        public ObservableCollection<MovieViewModel> Movies
         {
             get;
             private set;
@@ -25,14 +28,14 @@ namespace cpwp7.ViewModel
         /// <summary>
         /// Initializes a new instance of the WantedMoviesViewModel class.
         /// </summary>
-        public SeasonViewModel(IShowService showService)
+        public MoviesViewModel(IMovieService moviesService)
         {
             // The data service
-            _showService = showService;
+            _moviesService = moviesService;
 
             // Get all the movies and add them to the Movies collection
-            Seasons = new ObservableCollection<Season>();
-            _showService.GetSeasons("75760", (result, error) =>
+            Movies = new ObservableCollection<MovieViewModel>();
+            _moviesService.GetMovies((result, error) =>
             {
                 if (error != null)
                 {
@@ -46,11 +49,18 @@ namespace cpwp7.ViewModel
                     return;
                 }
 
-                foreach (var season in result)
+                List<Movie> movies = (List<Movie>)result;
+                movies.Reverse();
+
+                foreach (var movie in movies)
                 {
-                    Seasons.Add(season);
+                    Movies.Add(new MovieViewModel(movie));
                 }
+
             });
+
+            
+
         }
     }
 }

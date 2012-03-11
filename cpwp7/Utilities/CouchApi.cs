@@ -27,7 +27,7 @@ namespace cpwp7.Utilities
         // The api methods
         const string MovieListMethod = "movie.list";
         const string FileCacheMethod = "file.cache";
-
+        
         #region basic properties
 
         /// <summary>
@@ -99,9 +99,9 @@ namespace cpwp7.Utilities
         /// Get the all the movies
         /// </summary>
         /// <returns>A Uri object with the url to the server</returns>
-        public Uri MovieList() 
+        public Uri MovieList(string _sStatus) 
         {
-            return new Uri(BaseUrl() + MovieListMethod);
+            return new Uri(BaseUrl() + MovieListMethod + "?status=" + _sStatus);
         }
 
         /// <summary>
