@@ -16,7 +16,8 @@
                             mc:Ignorable="d"
                             d:DesignWidth="480"
                             d:DesignHeight="768"
-                            shell:SystemTray.IsVisible="True">
+                            shell:SystemTray.IsVisible="True"
+                            Style="{StaticResource TransitionPageStyle}">
     <phone:PhoneApplicationPage.Resources>
         <shell:ApplicationBar x:Key="showsAppBar" IsVisible="True" IsMenuEnabled="True" Opacity="0.95">
             <shell:ApplicationBarIconButton Text="Add Show" Click="AppBarAddShow_Click" IconUri="/Icons/AppBar.New.png"/>

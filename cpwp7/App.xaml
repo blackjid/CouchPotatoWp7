@@ -5,6 +5,7 @@
              xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
              mc:Ignorable="d"
              xmlns:vm="clr-namespace:cpwp7.ViewModel"
              xmlns:utilities="clr-namespace:cpwp7.Utilities">
@@ -13,6 +14,34 @@
         <!--Global View Model Locator-->
         <vm:ViewModelLocator x:Key="ViewModelLocator" d:IsDataSource="True"  />
         <utilities:ImageCacheConverter x:Key="imageCacheConverter" />
+
+        <Style x:Key="TransitionPageStyle" TargetType="phone:PhoneApplicationPage">
+            <Setter Property="toolkit:TransitionService.NavigationInTransition">
+                <Setter.Value>
+                    <toolkit:NavigationInTransition>
+                        <toolkit:NavigationInTransition.Backward>
+                            <toolkit:TurnstileTransition Mode="BackwardIn"/>
+                        </toolkit:NavigationInTransition.Backward>
+                        <toolkit:NavigationInTransition.Forward>
+                            <toolkit:TurnstileTransition Mode="ForwardIn"/>
+                        </toolkit:NavigationInTransition.Forward>
+                    </toolkit:NavigationInTransition>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="toolkit:TransitionService.NavigationOutTransition">
+                <Setter.Value>
+                    <toolkit:NavigationOutTransition>
+                        <toolkit:NavigationOutTransition.Backward>
+                            <toolkit:TurnstileTransition Mode="BackwardOut"/>
+                        </toolkit:NavigationOutTransition.Backward>
+                        <toolkit:NavigationOutTransition.Forward>
+                            <toolkit:TurnstileTransition Mode="ForwardOut"/>
+                        </toolkit:NavigationOutTransition.Forward>
+                    </toolkit:NavigationOutTransition>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
