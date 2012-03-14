@@ -85,10 +85,15 @@
     <Compile Include="Pages\AllMovies.xaml.cs">
       <DependentUpon>AllMovies.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Movie.xaml.cs">
+      <DependentUpon>Movie.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\DesignShowService.cs" />
     <Compile Include="Model\Episode.cs" />
     <Compile Include="Model\Season.cs" />
     <Compile Include="Model\Movie.cs" />
+    <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\ShowService.cs" />
     <Compile Include="Services\IShowService.cs" />
     <Compile Include="Model\Show.cs" />
@@ -102,6 +107,7 @@
       <DependentUpon>ShowPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\AppSettings.cs" />
+    <Compile Include="Utilities\NumberToVisibilityConverter.cs" />
     <Compile Include="Utilities\SickApi.cs" />
     <Compile Include="Utilities\CouchApi.cs" />
     <Compile Include="Services\DesignMovieService.cs" />
@@ -120,21 +126,25 @@
     <Compile Include="Utilities\IsoStoreHelper.cs" />
     <Compile Include="Utilities\UIHelper.cs" />
     <Compile Include="Utilities\PushHelper.cs" />
+    <Compile Include="ViewModel\MovieDetailsViewModel.cs" />
     <Compile Include="ViewModel\ShowsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\SeasonViewModel.cs" />
     <Compile Include="ViewModel\ShowViewModel.cs" />
-    <Compile Include="ViewModel\MoviesViewModel.cs" />
+    <Compile Include="ViewModel\AllMoviesViewModel.cs" />
     <Compile Include="ViewModel\MovieViewModel.cs" />
     <Compile Include="ViewModel\WantedMoviesViewModel.cs" />
+    <Compile Include="View\MovieView.xaml.cs">
+      <DependentUpon>MovieView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SeasonsView.xaml.cs">
       <DependentUpon>SeasonsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ShowsView.xaml.cs">
       <DependentUpon>ShowsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MoviesView.xaml.cs">
-      <DependentUpon>MoviesView.xaml</DependentUpon>
+    <Compile Include="View\AllMoviesView.xaml.cs">
+      <DependentUpon>AllMoviesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\WantedMoviesView.xaml.cs">
       <DependentUpon>WantedMoviesView.xaml</DependentUpon>
@@ -157,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\Movie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\SettingsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -164,6 +178,10 @@
     <Page Include="Pages\ShowPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MovieView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\SeasonsView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -173,7 +191,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MoviesView.xaml">
+    <Page Include="View\AllMoviesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,6 +209,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\AppBar.ClearAll.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\AppBar.Movies.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\AppBar.New.png">

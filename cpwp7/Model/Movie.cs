@@ -23,7 +23,19 @@ namespace cpwp7.Model
         public string Backdrop { get; set; }
 
         // The year of the movie.
-        public string Year { get; set; }
+        public int Year { get; set; }
+
+        // The year of the movie.
+        public double ImdbRating { get; set; }
+
+        // The year of the movie.
+        public int ImdbRatingCount { get; set; }
+
+        // The year of the movie.
+        public int RottenRating { get; set; }
+
+        // The year of the movie.
+        public int RottenRatingCount { get; set; }
 
         public Movie() {
 

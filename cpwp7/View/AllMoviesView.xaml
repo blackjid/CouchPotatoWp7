@@ -1,21 +1,19 @@
-﻿<UserControl x:Class="cpwp7.View.WantedMoviesView"
+﻿<UserControl x:Class="cpwp7.View.AllMoviesView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-    xmlns:mvvm="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP71"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="480" d:DesignWidth="480">
-    
+    d:DesignHeight="800" d:DesignWidth="480">
+
     <UserControl.DataContext>
-        <Binding Path="WantedMovies" Source="{StaticResource ViewModelLocator}" />
+        <Binding Path="Movies" Source="{StaticResource ViewModelLocator}" />
     </UserControl.DataContext>
-    
+
     <Grid x:Name="LayoutRoot">
         <ListBox ItemsSource="{Binding Path=Movies}"
                  SelectedItem="{Binding SelectedMovie, Mode=TwoWay}"

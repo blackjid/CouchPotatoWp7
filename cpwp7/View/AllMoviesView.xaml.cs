@@ -12,9 +12,9 @@ using System.Windows.Shapes;
 
 namespace cpwp7.View
 {
-    public partial class MoviesView : UserControl
+    public partial class AllMoviesView : UserControl
     {
-        public MoviesView()
+        public AllMoviesView()
         {
             InitializeComponent();
         }

@@ -12,8 +12,14 @@ using cpwp7.Services;
 namespace cpwp7.ViewModel
 {
    
-    public class MoviesViewModel : ViewModelBase
+    public class AllMoviesViewModel : ViewModelBase
     {
+        // Only used in WP7
+        public INavigationService NavigationService
+        {
+            get;
+            set;
+        }        
 
         // To store the Movies service returned by the locator
         private readonly IMovieService _moviesService;
@@ -26,9 +32,42 @@ namespace cpwp7.ViewModel
         }
 
         /// <summary>
+        /// The <see cref="SelectedFriend" /> property's name.
+        /// </summary>
+        public const string SelectedMoviePropertyName = "SelectedMovie";
+
+        private MovieViewModel _selectedMovie = null;
+
+        public MovieViewModel SelectedMovie
+        {
+            get
+            {
+                return _selectedMovie;
+            }
+
+            set
+            {
+                if (_selectedMovie == value)
+                {
+                    return;
+                }
+
+                var oldValue = _selectedMovie;
+                _selectedMovie = value;
+
+                //RaisePropertyChanged(SelectedMoviePropertyName);
+                RaisePropertyChanged(SelectedMoviePropertyName, oldValue, _selectedMovie, true);
+                if (NavigationService != null)
+                {
+                    NavigationService.NavigateTo(new Uri("/Pages/Movie.xaml", UriKind.Relative));
+                }
+            }
+        }
+
+        /// <summary>
         /// Initializes a new instance of the WantedMoviesViewModel class.
         /// </summary>
-        public MoviesViewModel(IMovieService moviesService)
+        public AllMoviesViewModel(IMovieService moviesService)
         {
             // The data service
             _moviesService = moviesService;

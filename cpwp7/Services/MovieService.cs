@@ -41,7 +41,17 @@ namespace cpwp7.Services
                     movie.Name = ((string)jtMovie["library"]["titles"][0]["title"]).ToUpper();
                     movie.Plot = (string)jtMovie["library"]["plot"];
                     movie.Art = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][0]["path"]);
-                    movie.Year = jtMovie["library"]["year"].ToString();
+                    movie.Year = (int)jtMovie["library"]["year"];
+                    if (jtMovie["library"]["info"]["rating"]["imdb"][0].ToString() != "N/A")
+                        movie.ImdbRating = (float)jtMovie["library"]["info"]["rating"]["imdb"][0];
+                    else
+                        movie.ImdbRating = 0;
+                    if (jtMovie["library"]["info"]["rating"]["imdb"][1].ToString() != "N/A")
+                        movie.ImdbRatingCount = (int)jtMovie["library"]["info"]["rating"]["imdb"][1];
+                    else
+                        movie.ImdbRatingCount = 0;
+                    movie.RottenRating = (int)jtMovie["library"]["info"]["rating"]["rotten"][0];
+                    movie.RottenRatingCount = (int)jtMovie["library"]["info"]["rating"]["rotten"][1];
                     //movie.Backdrop = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][2]["path"]);
 
                     result.Add(movie);
@@ -80,7 +90,17 @@ namespace cpwp7.Services
                     movie.Name = ((string)jtMovie["library"]["titles"][0]["title"]).ToUpper();
                     movie.Plot = (string)jtMovie["library"]["plot"];
                     movie.Art = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][0]["path"]);
-                    movie.Year = jtMovie["library"]["year"].ToString();
+                    movie.Year = (int)jtMovie["library"]["year"];
+                    if (jtMovie["library"]["info"]["rating"]["imdb"][0].ToString() != "N/A")
+                        movie.ImdbRating = (double)jtMovie["library"]["info"]["rating"]["imdb"][0];
+                    else
+                        movie.ImdbRating = 0;
+                    if (jtMovie["library"]["info"]["rating"]["imdb"][1].ToString() != "N/A")
+                        movie.ImdbRatingCount = (int)jtMovie["library"]["info"]["rating"]["imdb"][1];
+                    else
+                        movie.ImdbRatingCount = 0;
+                    movie.RottenRating = (int)jtMovie["library"]["info"]["rating"]["rotten"][0];
+                    movie.RottenRatingCount = (int)jtMovie["library"]["info"]["rating"]["rotten"][1];
                     //movie.Backdrop = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][2]["path"]);
 
                     result.Add(movie);

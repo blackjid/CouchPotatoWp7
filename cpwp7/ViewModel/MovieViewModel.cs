@@ -1,6 +1,10 @@
 ﻿using GalaSoft.MvvmLight;
 using cpwp7.Model;
 using System.Windows;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using System.Windows.Controls;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace cpwp7.ViewModel
 {
@@ -22,5 +26,10 @@ namespace cpwp7.ViewModel
         {
             Model = model;
         }
+
+        //private void OnShowMovieCommand(SelectionChangedEventArgs e)
+        //{
+        //    var a = 1 + 1;
+        //}
     }
 }

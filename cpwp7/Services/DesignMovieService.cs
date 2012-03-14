@@ -23,7 +23,11 @@ namespace cpwp7.Services
                     Name = ("Name" + index).ToUpper(),
                     Plot = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
                     Art = "http://nas.blackjid.info:5050/7c9fad341b764a5f8c4781c76f3cbc24/file.cache/0e805a1c080eee97ae227f73cd5b02fc.jpg",
-                    Year = "2011"
+                    Year = 2011,
+                    ImdbRating = 7.5,
+                    ImdbRatingCount = 0,
+                    RottenRating = 86,
+                    RottenRatingCount = 0
                     //Backdrop = couch.FileCache("/volume1/downloads/dev/CouchPotatoServer/_data/cache/761d3c67b737bba21fae2acc6040bde5.jpg")
                 };
 
@@ -46,7 +50,11 @@ namespace cpwp7.Services
                     Name = ("Name Wanted " + index).ToUpper(),
                     Plot = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
                     Art = "http://nas.blackjid.info:5050/7c9fad341b764a5f8c4781c76f3cbc24/file.cache/0e805a1c080eee97ae227f73cd5b02fc.jpg",
-                    Year = "2011"
+                    Year = 2011,
+                    ImdbRating = 7.5,
+                    ImdbRatingCount = 0,
+                    RottenRating = 86,
+                    RottenRatingCount = 0
                     //Backdrop = couch.FileCache("/volume1/downloads/dev/CouchPotatoServer/_data/cache/761d3c67b737bba21fae2acc6040bde5.jpg")
                 };
 

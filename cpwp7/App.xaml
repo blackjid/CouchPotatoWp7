@@ -14,6 +14,7 @@
         <!--Global View Model Locator-->
         <vm:ViewModelLocator x:Key="ViewModelLocator" d:IsDataSource="True"  />
         <utilities:ImageCacheConverter x:Key="imageCacheConverter" />
+        <utilities:NumberToVisibilityConverter x:Key="numberToVisibilityConverter" />
 
         <Style x:Key="TransitionPageStyle" TargetType="phone:PhoneApplicationPage">
             <Setter Property="toolkit:TransitionService.NavigationInTransition">
@@ -41,6 +42,39 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <DataTemplate x:Key="movieListDatatemplate">
+            <ListBoxItem toolkit:TiltEffect.IsTiltEnabled="True">
+                <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,0,0,8" Width="456">
+                    <Image x:Name="image" Source="{Binding Path=Model.Art, Mode=OneWay, Converter={StaticResource imageCacheConverter}}" Width="100" VerticalAlignment="Top"/>
+                    <Grid Height="{Binding Height, ElementName=image}" Width="356">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock TextWrapping="Wrap" Grid.Row="0" Style="{StaticResource PhoneTextExtraLargeStyle}" FontFamily="Segoe WP Black" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Text="{Binding Model.Name}" d:LayoutOverrides="Height"/>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Model.Year}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeSmall}" d:LayoutOverrides="GridBox" Foreground="Silver"/>
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal" Visibility="{Binding Model.ImdbRating, Converter={StaticResource numberToVisibilityConverter}}">
+                                <Image Source="/Icons/imdb.png" Stretch="Uniform" Height="20" d:LayoutOverrides="Height"/>
+                                <TextBlock TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeSmall}" Height="28" Foreground="Silver" Width="24" Text="{Binding Model.ImdbRating}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" HorizontalAlignment="Left" Orientation="Horizontal" Visibility="{Binding Model.RottenRating, Converter={StaticResource numberToVisibilityConverter}}">
+                                <Image Source="/Icons/rottentomatoes.png" Stretch="Uniform" Height="20" d:LayoutOverrides="Height"/>
+                                <TextBlock TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="Silver" Text="{Binding Model.RottenRating, StringFormat='{}{0}%'}"/>
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock Text="{Binding Model.Plot}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeNormal}" VerticalAlignment="Top" Grid.Row="2" TextTrimming="WordEllipsis" Height="88" d:LayoutOverrides="GridBox"/>
+                    </Grid>
+                </StackPanel>
+            </ListBoxItem>
+        </DataTemplate>
 
     </Application.Resources>
 

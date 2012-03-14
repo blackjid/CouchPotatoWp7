@@ -28,7 +28,8 @@ namespace cpwp7.ViewModel
             SimpleIoc.Default.Register<SeasonViewModel>();
 
             SimpleIoc.Default.Register<WantedMoviesViewModel>();
-            SimpleIoc.Default.Register<MoviesViewModel>();
+            SimpleIoc.Default.Register<AllMoviesViewModel>();
+            SimpleIoc.Default.Register<MovieDetailsViewModel>();
         }
 
         /// <summary>
@@ -60,18 +61,33 @@ namespace cpwp7.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<WantedMoviesViewModel>();
+                var movies = ServiceLocator.Current.GetInstance<WantedMoviesViewModel>();
+                movies.NavigationService = new NavigationService();
+                return movies;
             }
         }
 
         /// <summary>
         /// Gets the Main property.
         /// </summary>
-        public MoviesViewModel Movies
+        public AllMoviesViewModel Movies
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MoviesViewModel>();
+                var movies = ServiceLocator.Current.GetInstance<AllMoviesViewModel>();
+                movies.NavigationService = new NavigationService();
+                return movies; 
+            }
+        }
+
+        /// <summary>
+        /// Gets the Main property.
+        /// </summary>
+        public MovieDetailsViewModel MovieDetails
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MovieDetailsViewModel>();
             }
         }
     }
