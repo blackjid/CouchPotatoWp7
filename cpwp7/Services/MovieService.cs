@@ -11,12 +11,15 @@ using System.Windows.Shapes;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using cpwp7.Model;
+using cpwp7.Utilities;
 
 namespace cpwp7.Services
 {
     public class MovieService : IMovieService
     {
         public void GetWanted(Action<IList<Movie>, Exception> callback) {
+            GlobalLoading.Instance.IsLoading = true;
+            
             // Create the client
             WebClient client = new WebClient();
 
@@ -57,6 +60,8 @@ namespace cpwp7.Services
                     result.Add(movie);
                 }
 
+                GlobalLoading.Instance.IsLoading = false;
+
                 callback(result, null);
             };
 
@@ -66,6 +71,8 @@ namespace cpwp7.Services
         
         public void GetMovies(Action<IList<Movie>, Exception> callback)
         {
+            GlobalLoading.Instance.IsLoading = true;
+
             // Create the client
             WebClient client = new WebClient();
 
@@ -105,6 +112,8 @@ namespace cpwp7.Services
 
                     result.Add(movie);
                 }
+
+                GlobalLoading.Instance.IsLoading = false;
 
                 callback(result, null);
             };

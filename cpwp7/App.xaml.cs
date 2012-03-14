@@ -165,7 +165,7 @@ namespace cpwp7
             RootFrame.NavigationFailed += RootFrame_NavigationFailed;
 
             // Global loading
-            //GlobalLoading.Instance.Initialize(RootFrame);
+            GlobalLoading.Instance.Initialize(RootFrame);
 
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;

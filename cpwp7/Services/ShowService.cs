@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using cpwp7.Model;
+using cpwp7.Utilities;
 
 namespace cpwp7.Services
 {
@@ -18,6 +19,8 @@ namespace cpwp7.Services
     {
         public void GetShows(Action<IList<Show>, Exception> callback)
         {
+            GlobalLoading.Instance.IsLoading = true;
+
             // Create the client
             WebClient client = new WebClient();
 
@@ -51,6 +54,8 @@ namespace cpwp7.Services
 
                     result.Add(show);
                 }
+
+                GlobalLoading.Instance.IsLoading = false;
 
                 callback(result, null);
             };

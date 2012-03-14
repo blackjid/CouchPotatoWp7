@@ -107,6 +107,7 @@
       <DependentUpon>ShowPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\AppSettings.cs" />
+    <Compile Include="Utilities\GlobalLoading.cs" />
     <Compile Include="Utilities\NumberToVisibilityConverter.cs" />
     <Compile Include="Utilities\SickApi.cs" />
     <Compile Include="Utilities\CouchApi.cs" />
