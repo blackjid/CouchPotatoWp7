@@ -55,7 +55,7 @@ namespace cpwp7.Services
                         movie.ImdbRatingCount = 0;
                     movie.RottenRating = (int)jtMovie["library"]["info"]["rating"]["rotten"][0];
                     movie.RottenRatingCount = (int)jtMovie["library"]["info"]["rating"]["rotten"][1];
-                    //movie.Backdrop = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][2]["path"]);
+                    movie.Backdrop = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][2]["path"]);
 
                     result.Add(movie);
                 }
@@ -108,7 +108,7 @@ namespace cpwp7.Services
                         movie.ImdbRatingCount = 0;
                     movie.RottenRating = (int)jtMovie["library"]["info"]["rating"]["rotten"][0];
                     movie.RottenRatingCount = (int)jtMovie["library"]["info"]["rating"]["rotten"][1];
-                    //movie.Backdrop = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][2]["path"]);
+                    movie.Backdrop = App.Current.Couch.FileCache((string)jtMovie["library"]["files"][2]["path"]);
 
                     result.Add(movie);
                 }

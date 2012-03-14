@@ -51,12 +51,12 @@
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <controls:Pivot Title="Couchbeard" SelectionChanged="Pivot_SelectionChanged">
-            <controls:PivotItem Header="Movies">
+        <controls:Pivot Title="COUCHBEARD" SelectionChanged="Pivot_SelectionChanged">
+            <controls:PivotItem Header="movies">
                 <views:WantedMoviesView x:Name="allMoviesList"/>
             </controls:PivotItem>
 
-            <controls:PivotItem Header="TvShows">
+            <controls:PivotItem Header="tvshows">
                 <views:ShowsView x:Name="tvShowsList"/>
             </controls:PivotItem>
         </controls:Pivot>

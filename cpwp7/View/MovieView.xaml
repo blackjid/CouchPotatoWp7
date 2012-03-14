@@ -20,7 +20,9 @@
 
             <!--Panorama item one-->
             <controls:PanoramaItem Header="item1">
-                <Grid/>
+                <Grid>
+                    <Image Source="{Binding SelectedMovie.Model.Art}" Width="200" Height="400"/>
+                </Grid>
             </controls:PanoramaItem>
 
             <!--Panorama item two-->

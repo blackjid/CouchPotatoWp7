@@ -27,8 +27,8 @@ namespace cpwp7.Services
                     ImdbRating = 7.5,
                     ImdbRatingCount = 0,
                     RottenRating = 86,
-                    RottenRatingCount = 0
-                    //Backdrop = couch.FileCache("/volume1/downloads/dev/CouchPotatoServer/_data/cache/761d3c67b737bba21fae2acc6040bde5.jpg")
+                    RottenRatingCount = 0,
+                    Backdrop = couch.FileCache("/root/.couchpotato/cache/e6317f1d41614f9c9567c3a5a01ce45d.jpg")
                 };
 
                 result.Add(movie);
@@ -54,8 +54,8 @@ namespace cpwp7.Services
                     ImdbRating = 7.5,
                     ImdbRatingCount = 0,
                     RottenRating = 86,
-                    RottenRatingCount = 0
-                    //Backdrop = couch.FileCache("/volume1/downloads/dev/CouchPotatoServer/_data/cache/761d3c67b737bba21fae2acc6040bde5.jpg")
+                    RottenRatingCount = 0,
+                    Backdrop = couch.FileCache("/root/.couchpotato/cache/e6317f1d41614f9c9567c3a5a01ce45d.jpg")
                 };
 
                 result.Add(movie);

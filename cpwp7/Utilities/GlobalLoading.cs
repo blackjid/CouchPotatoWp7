@@ -105,6 +105,11 @@ namespace cpwp7.Utilities
                 {
                     _mangoIndicator.IsVisible = true;
                 }
+
+                if (_loadingCount == 0)
+                    _mangoIndicator.Text = "";
+                else
+                    _mangoIndicator.Text = "Loading movies...";
             }
         }
 
