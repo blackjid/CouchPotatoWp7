@@ -48,11 +48,9 @@ namespace cpwp7.Utilities
             {
                 // The image to be returned to the image control
                 BitmapImage image = new BitmapImage();
-                Uri uri = new Uri("SplashScreenImage.jpg", UriKind.Relative);
+                Uri uri = new Uri("Icons/ArtPlaceholder.jpg", UriKind.Relative);
                 StreamResourceInfo resourceInfo = Application.GetResourceStream(uri);
                 image.SetSource(resourceInfo.Stream);
-                //image.CreateOptions = BitmapCreateOptions.BackgroundCreation;
-                //image.SetSource(new MemoryStream(new byte[0]));
                 
                 if (iso.FileExists(fullpath))
                 {
@@ -64,7 +62,7 @@ namespace cpwp7.Utilities
                         // The image to be returned to the image control
                         image.SetSource(stream);
                         //queue.Add(url, image);
-                        
+                       
                     }
                 }
                 else
