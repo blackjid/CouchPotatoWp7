@@ -52,12 +52,12 @@ namespace cpwp7.ViewModel
         /// </summary>
         public MovieDetailsViewModel(IMovieService moviesService)
         {
-            Messenger.Default.Register<PropertyChangedMessage<MovieViewModel>>(
+            Messenger.Default.Register<MovieViewModel>(
                 this,
                 message =>
                 {
-                    SelectedMovie = null;
-                    SelectedMovie = message.NewValue;
+                    //SelectedMovie = null;
+                    SelectedMovie = message;
                 });
         }
     }

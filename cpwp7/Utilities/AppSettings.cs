@@ -19,7 +19,7 @@ namespace cpwp7.Utilities
         const string SBPortKeyName = "SBPortSetting";
 
         // The default value of our settings
-        const string CPApiKeySettingDefault = "7c9fad341b764a5f8c4781c76f3cbc24";
+        const string CPApiKeySettingDefault = "61ccfd6cec1b4ba98edd228a67bb9120";//"7c9fad341b764a5f8c4781c76f3cbc24";
         const string CPHostSettingDefault = "nas.blackjid.info";
         const string CPPortSettingDefault = "5050";
         const string SBApiKeySettingDefault = "f5d6701f555447546b6030432d15e229";

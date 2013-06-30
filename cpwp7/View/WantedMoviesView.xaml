@@ -17,8 +17,16 @@
     </UserControl.DataContext>
     
     <Grid x:Name="LayoutRoot">
-        <ListBox ItemsSource="{Binding Path=Movies}"
-                 SelectedItem="{Binding SelectedMovie, Mode=TwoWay}"
-                 ItemTemplate="{StaticResource movieListDatatemplate}"/>
+        <ListBox x:Name="listBox1" ItemsSource="{Binding Path=Movies}"
+                 ItemTemplate="{StaticResource movieListDatatemplate}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <mvvm:EventToCommand x:Name="MovieSelectionChanged" 
+                                         Command="{Binding SelectionChangedCommand, Mode=OneWay}"
+                                         CommandParameter="{Binding SelectedItem, ElementName=listBox1}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+        
     </Grid>
 </UserControl>

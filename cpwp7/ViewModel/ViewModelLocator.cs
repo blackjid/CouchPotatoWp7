@@ -29,7 +29,7 @@ namespace cpwp7.ViewModel
 
             SimpleIoc.Default.Register<WantedMoviesViewModel>();
             SimpleIoc.Default.Register<AllMoviesViewModel>();
-            SimpleIoc.Default.Register<MovieDetailsViewModel>();
+            SimpleIoc.Default.Register<MovieDetailsViewModel>(); 
         }
 
         /// <summary>

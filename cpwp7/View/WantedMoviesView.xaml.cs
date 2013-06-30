@@ -18,5 +18,11 @@ namespace cpwp7.View
         {
             InitializeComponent();
         }
+
+        private void NewsItemTap(object sender, GestureEventArgs e)
+        {
+            var element = e.OriginalSource as FrameworkElement;
+            
+        }
     }
 }
